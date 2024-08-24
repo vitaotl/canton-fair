@@ -1,0 +1,228 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  .map-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .map {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .areas {
+    /* display: none; */
+    /* Esconde todas as áreas inicialmente */
+  }
+
+  .area {
+    display: none;
+    /* Esconde todas as áreas inicialmente */
+  }
+
+  .area.active {
+    display: block;
+    /* Mostra apenas a área ativa */
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stands-left,
+  .stands-right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 48%;
+  }
+
+  .stand {
+    width: 45px;
+    height: 45px;
+    background-color: lightgray;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .stand.visited {
+    background-color: green;
+    color: white;
+  }
+</style>
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canton Fair Map - Agro agr</title>
+</head>
+
+<body>
+  <div class="map-navigation">
+    <button id="prev-area">← Previous Area</button>
+    <button id="next-area">Next Area →</button>
+  </div>
+  <div class="map">
+    <h1 id="area-title">Area A</h1>
+    <!-- Área A-D -->
+    <div class="areas">
+      <!-- A área atualmente visível será exibida aqui -->
+      <div class="area" id="area-A"></div>
+      <div class="area" id="area-B"></div>
+      <div class="area" id="area-C"></div>
+      <div class="area" id="area-D"></div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const areas = ['A', 'B', 'C', 'D'];
+    let currentAreaIndex = 0;
+
+    const areaTitle = document.getElementById('area-title');
+    const prevButton = document.getElementById('prev-area');
+    const nextButton = document.getElementById('next-area');
+
+    function createStand(number, corridor, area) {
+      const stand = document.createElement('div');
+      stand.className = 'stand';
+      stand.textContent = number;
+
+      // Verifica se o estande já foi visitado (carregado do LocalStorage)
+      const visitedStands = JSON.parse(localStorage.getItem('visitedStands')) || {};
+      if (visitedStands[area]?.[corridor]?.includes(number)) {
+        stand.classList.add('visited');
+      }
+
+      stand.addEventListener('click', function () {
+        this.classList.toggle('visited');
+        saveVisitStatus(area, corridor, number);
+      });
+      return stand;
+    }
+
+    function saveVisitStatus(area, corridor, standNumber) {
+      let visitedStands = JSON.parse(localStorage.getItem('visitedStands')) || {};
+
+      if (!visitedStands[area]) {
+        visitedStands[area] = {};
+      }
+      if (!visitedStands[area][corridor]) {
+        visitedStands[area][corridor] = [];
+      }
+
+      const index = visitedStands[area][corridor].indexOf(standNumber);
+      if (index > -1) {
+        // Remove o estande da lista se ele já estiver marcado
+        visitedStands[area][corridor].splice(index, 1);
+      } else {
+        // Adiciona o estande à lista
+        visitedStands[area][corridor].push(standNumber);
+      }
+
+      localStorage.setItem('visitedStands', JSON.stringify(visitedStands));
+    }
+
+    function createCorridor(letter, area) {
+      const corridor = document.createElement('div');
+      corridor.className = 'corridor';
+      corridor.id = `corridor-${letter}`;
+
+      const title = document.createElement('h2');
+      title.textContent = `Aisle ${letter}`;
+      corridor.appendChild(title);
+
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const standsLeft = document.createElement('div');
+      standsLeft.className = 'stands-left';
+      const standsRight = document.createElement('div');
+      standsRight.className = 'stands-right';
+
+      for (let i = 1; i <= 47; i += 2) {
+        standsLeft.appendChild(createStand(i, letter, area));
+      }
+
+      for (let i = 2; i <= 48; i += 2) {
+        standsRight.appendChild(createStand(i, letter, area));
+      }
+
+      row.appendChild(standsLeft);
+      row.appendChild(standsRight);
+
+      corridor.appendChild(row);
+      return corridor;
+    }
+
+    function generateAreas() {
+      areas.forEach(area => {
+        const areaElement = document.getElementById(`area-${area}`);
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.slice(0, 26);
+
+        alphabet.split('').forEach(letter => {
+          areaElement.appendChild(createCorridor(letter, area));
+        });
+      });
+    }
+
+    function showArea(index) {
+      document.querySelectorAll('.area').forEach((area, idx) => {
+        area.classList.toggle('active', idx === index);
+      });
+      areaTitle.textContent = `Area ${areas[index]}`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentAreaIndex > 0) {
+        currentAreaIndex--;
+        showArea(currentAreaIndex);
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentAreaIndex < areas.length - 1) {
+        currentAreaIndex++;
+        showArea(currentAreaIndex);
+      }
+    });
+
+    generateAreas();
+    showArea(currentAreaIndex);
+  });
+
+</script>
