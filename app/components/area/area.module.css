@@ -1,0 +1,71 @@
+.area {
+  width: 45%;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  color: #FFFFFF;
+
+  border-radius: 5px;
+}
+
+.titleFloors {
+  color: grey;
+}
+
+.floors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+
+  width: 100%;
+}
+
+.pavillion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+
+}
+
+.pavillionNumber {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.pavillionFloor {
+  display: flex;
+  gap: 5px;
+
+  width: 100%;
+}
+
+.pavillionFloorNumber {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #8080806e;
+}

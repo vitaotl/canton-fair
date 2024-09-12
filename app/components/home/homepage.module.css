@@ -1,0 +1,61 @@
+.welcome {
+  color: var(--green);
+
+  width: 300px;
+
+}
+
+.edition {
+  color: var(--orange);
+}
+
+.phases {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.phase {
+  cursor: pointer;
+}
+
+.phaseDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.phaseDescription p {
+  color: #d7c50d;
+}
+
+.phaseDescription .colored {
+  width: 10px;
+  height: 10px;
+}
+
+.phases a:nth-child(1) {
+  color: var(--phase1);
+}
+
+.phases a:nth-child(1) .colored {
+  background-color: var(--phase1);
+}
+
+.phases a:nth-child(2) {
+  color: var(--phase2);
+}
+
+.phases a:nth-child(2) .colored {
+  background-color: var(--phase2);
+}
+
+.phases a:nth-child(3) {
+  color: var(--phase3);
+}
+
+.phases a:nth-child(3) .colored {
+  background-color: var(--phase3);
+}

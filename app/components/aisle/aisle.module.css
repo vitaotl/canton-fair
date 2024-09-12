@@ -1,0 +1,72 @@
+.aisleContainer {
+  width: 100%;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aisle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aisle button {
+  padding: 5px;
+  height: max-content;
+  width: 70px;
+
+  background: var(--green);
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.aisleContainer p {
+  width: 150px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin: auto;
+
+  background-color: var(--orange);
+  color: #FFFFFF;
+  font-size: 1.2rem;
+}
+
+.boothsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boothName {
+  width: 80px;
+  padding: 5px 15px;
+
+  border-radius: 5px;
+  background-color: rgb(250, 57, 57);
+
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}
+
+.booths {
+  width: 200px;
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 10px 30px;
+  flex-wrap: wrap;
+
+}
+
+.booth {
+  width: 50px;
+  border-radius: 5px;
+
+  background-color: rgba(128, 128, 128, 0.686);
+  color: #FFFFFF;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,42 @@
+
+.phases {
+  display: flex;
+  flex-direction: column;
+}
+
+.phase {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+}
+
+.colored {
+  width: 10px;
+  height: 10px;
+}
+
+.phases div:nth-child(1) {
+  color: var(--phase1);
+}
+
+.phases div:nth-child(1) .colored {
+  background-color: var(--phase1);
+}
+
+.phases div:nth-child(2) {
+  color: var(--phase2);
+}
+
+.phases div:nth-child(2) .colored {
+  background-color: var(--phase2);
+}
+
+.phases div:nth-child(3) {
+  color: var(--phase3);
+}
+
+.phases div:nth-child(3) .colored {
+  background-color: var(--phase3);
+}
