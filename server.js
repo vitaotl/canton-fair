@@ -8,9 +8,9 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   createServer((req, res) => {
     handle(req, res);
-  }).listen(3000, err => {
+  }).listen(21011, err => {
     if (err) console.log('erorrrrrclear');
-    console.log('> Ready on http://localhost:3000');
+    console.log('> Ready on http://localhost:21011 hehehe');
   });
 });
  
