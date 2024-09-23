@@ -18,25 +18,25 @@
 }
 
 .phases div:nth-child(1) {
-  color: var(--phase1);
+  color: var(--green2);
 }
 
 .phases div:nth-child(1) .colored {
-  background-color: var(--phase1);
+  background-color: var(--green2);
 }
 
 .phases div:nth-child(2) {
-  color: var(--phase2);
+  color: var(--green2);
 }
 
 .phases div:nth-child(2) .colored {
-  background-color: var(--phase2);
+  background-color: var(--green2);
 }
 
 .phases div:nth-child(3) {
-  color: var(--phase3);
+  color: var(--green2);
 }
 
 .phases div:nth-child(3) .colored {
-  background-color: var(--phase3);
+  background-color: var(--green2);
 }

@@ -1,5 +1,5 @@
 .welcome {
-  color: var(--green);
+  color: var(--green2);
 
   width: 300px;
 
@@ -28,7 +28,7 @@
 }
 
 .phaseDescription p {
-  color: #d7c50d;
+  color: var(--green2);
 }
 
 .phaseDescription .colored {
@@ -37,25 +37,25 @@
 }
 
 .phases a:nth-child(1) {
-  color: var(--phase1);
+  color: var(--green2);
 }
 
 .phases a:nth-child(1) .colored {
-  background-color: var(--phase1);
+  background-color: var(--green2);
 }
 
 .phases a:nth-child(2) {
-  color: var(--phase2);
+  color: var(--green2);
 }
 
 .phases a:nth-child(2) .colored {
-  background-color: var(--phase2);
+  background-color: var(--green2);
 }
 
 .phases a:nth-child(3) {
-  color: var(--phase3);
+  color: var(--green2);
 }
 
 .phases a:nth-child(3) .colored {
-  background-color: var(--phase3);
+  background-color: var(--green2);
 }

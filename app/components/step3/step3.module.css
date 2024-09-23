@@ -14,11 +14,11 @@
 }
 
 .welcome {
-  color: var(--green);
+  color: var(--green2);
 }
 
 .phaseNumber {
-  color: var(--orange);
+  color: var(--green);
 }
 
 .area {

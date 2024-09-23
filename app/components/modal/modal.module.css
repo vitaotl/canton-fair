@@ -1,0 +1,50 @@
+.modal {
+  position: absolute;
+  inset: 35px;
+  background: var(--orange);
+  border: 1px solid var(--orange);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px 5px;
+
+}
+
+.textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+  background-color: #FFFFFF;
+  padding: 15px;
+  border-radius: 5px;
+
+  margin-top: 10px;
+}
+
+.saveButton,
+.cancelButton,
+.removeButton {
+  padding: 10px;
+  border-radius: 5px;
+
+  border: none;
+  color: #FFFFFF;
+}
+
+.saveButton {
+  background-color: var(--green);
+}
+
+.cancelButton {
+  background-color: var(--phase3);
+}
+
+.removeButton {
+  margin-left: auto;
+  background-color: var(--orange);
+}

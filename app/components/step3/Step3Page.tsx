@@ -21,7 +21,6 @@ const Step3Page: React.FC = () => {
       <Phases />
       <hr className={styles.divisor} />
       <div className="step">Step 3</div>
-      <div>floor {floor}</div>
       <p className={styles.welcome}>
         Welcome to <span className={styles.phaseNumber}>{area} Area</span>.{" "}
         <br /> Choose the Pavillion and Floor Bellow.

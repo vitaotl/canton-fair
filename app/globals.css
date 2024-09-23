@@ -11,6 +11,7 @@
   
   --orange: #ff5722;
   --green: #32cd32;
+  --green2: #033;
   
   --phase1: #ff5722;
   --phase2: #bd441d;
@@ -108,7 +109,7 @@ a {
   padding: 5px 20px;
 
   color: #FFFFFF;
-  background-color: var(--orange);
+  background-color: var(--green2);
 
   border-radius: 3px 15px 0px 3px;
 
