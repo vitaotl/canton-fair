@@ -1,8 +1,9 @@
 .modal {
   position: absolute;
   inset: 35px;
-  background: var(--orange);
-  border: 1px solid var(--orange);
+  background: #ff572299;
+  height: max-content;
+  
   overflow: auto;
   border-radius: 4px;
   outline: none;

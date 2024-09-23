@@ -9,8 +9,8 @@ app.prepare().then(() => {
   createServer((req, res) => {
     handle(req, res);
   }).listen(21011, err => {
-    if (err) console.log('erorrrrrclear');
-    console.log('> Ready on http://localhost:21011 hehehe');
+    if (err) console.log('error', err);
+    console.log('> Ready on http://localhost:21011');
   });
 });
  
