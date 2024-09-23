@@ -84,7 +84,6 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 3rem 10px 0 10px;
-  min-height: 100vh;
 }
 
 .container {
@@ -107,6 +106,8 @@ a {
 .sendMessage {
   padding: 5px;
   border-radius: 5px 20px 0 0;
+  margin-top: 50px;
+
   width: 100%;
   text-align: center;
 
