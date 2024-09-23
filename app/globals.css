@@ -104,6 +104,16 @@ a {
 
 }
 
+.sendMessage {
+  padding: 5px;
+  border-radius: 5px 20px 0 0;
+  width: 100%;
+  text-align: center;
+  
+  background-color: var(--green2);
+  color: #FFFFFF;
+}
+
 .topHeader {
   width: max-content;
   padding: 5px 20px;

@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`main ${inter.className}`} id="el">
         <Provider>{children}</Provider>
+        <div className="sendMessage">HallMap.cn - Send Message...</div>
       </body>
     </html>
   )
