@@ -17,9 +17,9 @@ app.prepare().then(() => {
 
   https.createServer(sslOptions, (req, res) => {
     handle(req, res);
-  }).listen(21011, err => {
+  }).listen(443, err => {
     if (err) throw err;
-    console.log('> Ready on https://localhost:21011');
+    console.log('> Ready on https://www.hallmap.cn');
   });
 
 });
