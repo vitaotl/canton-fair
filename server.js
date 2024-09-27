@@ -8,9 +8,6 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-console.log(path.join(__dirname, 'key/key.pem'))
-
-
 app.prepare().then(() => {
   // Produção: Use HTTPS
   const sslOptions = {
