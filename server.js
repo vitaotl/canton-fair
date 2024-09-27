@@ -8,14 +8,14 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-console.log(path.join(__dirname, 'key/key.pem'))
+console.log('key/key.pem')
 
 
 app.prepare().then(() => {
   // Produção: Use HTTPS
   const sslOptions = {
-    key: fs.readFileSync(path.join(__dirname, 'key/key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'key/cert.pem'))
+    key: fs.readFileSync('key/key.pem'),
+    cert: fs.readFileSync('key/cert.pem')
   };
 
   https.createServer(sslOptions, (req, res) => {
