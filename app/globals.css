@@ -8,11 +8,11 @@
   --foreground-rgb: 0, 0, 0;
   /* --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
-  
+
   --orange: #ff5722;
   --green: #32cd32;
   --green2: #033;
-  
+
   --phase1: #ff5722;
   --phase2: #bd441d;
   --phase3: #b52515;
@@ -25,24 +25,20 @@
     --background-end-rgb: 0, 0, 0;
 
     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+    --secondary-glow: linear-gradient(to bottom right,
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0),
+        rgba(1, 65, 255, 0.3));
 
     --tile-start-rgb: 2, 13, 46;
     --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+    --tile-border: conic-gradient(#ffffff80,
+        #ffffff40,
+        #ffffff30,
+        #ffffff20,
+        #ffffff10,
+        #ffffff10,
+        #ffffff80);
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
@@ -65,12 +61,9 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 a {
@@ -83,7 +76,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10px 0 10px;
+  padding: 3rem 10px;
 }
 
 .container {
@@ -108,7 +101,7 @@ a {
   border-radius: 5px 20px 0 0;
   margin-top: 50px;
 
-  width: 100%;
+  width: 300px;
   text-align: center;
 
   background-color: var(--green2);
@@ -141,6 +134,16 @@ a {
 
   color: #FFFFFF;
   background-color: var(--green);
+}
+
+.backButton {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {

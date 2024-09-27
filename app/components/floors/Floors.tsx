@@ -8,6 +8,7 @@ import Phases from "../phases/Phases"
 import { areas, categories } from "@/lib/data"
 import { useRouter } from "next/navigation"
 import Aisle from "../aisle/Aisle"
+import BackButton from "../backButton/BackButton"
 
 const Floors: React.FC = () => {
   const { area, floor, setFloor, phase } = useContext<any>(Context)
@@ -35,9 +36,10 @@ const Floors: React.FC = () => {
     if (index === 0) return
     setFloor(`${pavillion}.${floors[index - 1]}`)
   }
-  const goback = () => {}
+
   return (
     <div className={styles.container}>
+      <BackButton />
       <div className="topHeader">
         <p className="subtext">Pazhou - Layout - Canton Fair Complex</p>
         <p className="text"> 136rd Session - Fall Season</p>

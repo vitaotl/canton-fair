@@ -5,7 +5,7 @@ import { Context } from "@/app/provider"
 import getPhases from "@/utils/getPhases"
 
 const Phases: React.FC = () => {
-  const { phase } = useContext<any>(Context)
+  const { phase, setPhase } = useContext<any>(Context)
   const phases = getPhases(136)
 
   return (
@@ -20,6 +20,7 @@ const Phases: React.FC = () => {
                 ? { borderBottom: "2px solid var(--green)", fontSize: "18px" }
                 : undefined
             }
+            onClick={() => setPhase(index + 1)}
           >
             <div className={styles.colored}></div>
             <p className={styles.phaseTitle}>{p.name}</p>

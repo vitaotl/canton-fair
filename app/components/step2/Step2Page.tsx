@@ -5,12 +5,15 @@ import React, { useContext } from "react"
 
 import styles from "./step2.module.css"
 import Phases from "../phases/Phases"
+import BackButton from "../backButton/BackButton"
 
 const Step2Page: React.FC = () => {
   const { phase, setPhase } = useContext<any>(Context)
+  
 
   return (
     <div className={styles.container}>
+      <BackButton />
       <div className="topHeader">
         <p className="subtext">Pazhou - Layout - Canton Fair Complex</p>
         <p className="text"> 136rd Session - Fall Season</p>

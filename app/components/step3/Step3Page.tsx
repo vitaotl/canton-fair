@@ -7,6 +7,7 @@ import styles from "./step3.module.css"
 import Phases from "../phases/Phases"
 import { areas } from "@/lib/data"
 import IndividualArea from "../individualArea/IndividualArea"
+import BackButton from "../backButton/BackButton"
 
 const Step3Page: React.FC = () => {
   const { area, floor } = useContext<any>(Context)
@@ -14,6 +15,7 @@ const Step3Page: React.FC = () => {
   console.log(selectedArea)
   return (
     <div className={styles.container}>
+      <BackButton />
       <div className="topHeader">
         <p className="subtext">Pazhou - Layout - Canton Fair Complex</p>
         <p className="text"> 136rd Session - Fall Season</p>
