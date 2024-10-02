@@ -4,16 +4,28 @@ import { ailes, booths } from "@/lib/data"
 import { Context } from "@/app/provider"
 import DescriptionModal from "../modal/Modal"
 import getStandDescriptions from "@/utils/getStandDescriptions"
+import SignUpModal from "../SignUpModal/SignUpModal"
 
 const Aisle = () => {
-  const { phase, area, floor, setDescriptions, descriptions } =
+  const { phase, area, floor, setDescriptions, descriptions, userInfo } =
     useContext<any>(Context)
-
+  const loggedUser = JSON.parse(
+    localStorage.getItem("cantonFairUser") || "null"
+  )
   useEffect(() => {
+    if (!loggedUser) return
     const getDescriptions = async () => {
+      // if (!userInfo) {
+      //   const descriptions = JSON.parse(
+      //     localStorage.getItem("descriptions") || "[]"
+      //   )
+      //   setDescriptions(descriptions)
+      //   return
+      // }
       try {
-        const response = await getStandDescriptions(1, area, phase)
+        const response = await getStandDescriptions(loggedUser.userId, area, phase)
         setDescriptions(response)
+        localStorage.setItem("descriptions", JSON.stringify(response))
         console.log("desc: ", response)
       } catch (error: any) {
         console.error("Error:", error.message)
@@ -23,7 +35,7 @@ const Aisle = () => {
     if (area && phase) {
       getDescriptions()
     }
-  }, [area, phase, setDescriptions])
+  }, [area, phase])
 
   // console.log('phase ', phase)
   // console.log('area ', area)
@@ -31,6 +43,7 @@ const Aisle = () => {
   const [activeAisle, setActiveAisle] = useState(ailes[0])
   const [selectedBooth, setSelectedBooth] = useState(null)
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [userModalIsOpen, setUserModalIsOpen] = useState(false)
   const [identifier, setIdentifier] = useState("")
   const [boothNumber, setBoothNumber] = useState(0)
 
@@ -48,7 +61,14 @@ const Aisle = () => {
     setActiveAisle(ailes[index + 1])
   }
 
-  const handleBoothClick = (booth: any, identifier: string, boothNumber: any) => {
+  const handleBoothClick = (
+    booth: any,
+    identifier: string,
+    boothNumber: any
+  ) => {
+    const userLogged = checkUserInfo()
+    if (userLogged) return
+
     setIdentifier(identifier)
     setSelectedBooth(booth)
     setBoothNumber(boothNumber)
@@ -57,7 +77,6 @@ const Aisle = () => {
 
   const handleSaveDescription = (description: any) => {
     setSelectedBooth((prevBooth: any) => ({ ...prevBooth, description }))
-    // Aqui você pode adicionar o código para salvar a descrição no banco de dados
   }
 
   const isKeyInDescriptions = (key: any, descriptions: any) => {
@@ -65,6 +84,17 @@ const Aisle = () => {
       (description: any) => description.identifier === key
     )
   }
+
+  const checkUserInfo = () => {
+    if (!loggedUser) {
+      setUserModalIsOpen(true)
+      return true
+    }
+  }
+
+  useEffect(() => {
+    checkUserInfo()
+  }, [])
 
   return (
     <div className={styles.aisleContainer}>
@@ -87,7 +117,11 @@ const Aisle = () => {
                     index + 1
                   }`}
                   className={styles.booth}
-                  style={isKeyPresent.length > 0 ? { backgroundColor: "#32cd32" } : {}}
+                  style={
+                    isKeyPresent.length > 0
+                      ? { backgroundColor: "#32cd32" }
+                      : {}
+                  }
                   onClick={() =>
                     handleBoothClick(
                       isKeyPresent[0],
@@ -110,6 +144,10 @@ const Aisle = () => {
             booth={selectedBooth}
             identifier={identifier}
             boothNumber={boothNumber}
+          />
+          <SignUpModal
+            isOpen={userModalIsOpen}
+            onRequestClose={() => setUserModalIsOpen(false)}
           />
         </div>
         <button onClick={handleNextClick}>

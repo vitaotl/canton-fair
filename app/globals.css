@@ -64,6 +64,7 @@ body {
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  height: 90vh;
 }
 
 a {
@@ -76,7 +77,10 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10px;
+
+  padding: 30px 5px 0 5px;
+
+  height: 90vh;
 }
 
 .container {
@@ -99,7 +103,7 @@ a {
 .sendMessage {
   padding: 5px;
   border-radius: 5px 20px 0 0;
-  margin-top: 50px;
+  margin-top: 10px;
 
   width: 300px;
   text-align: center;

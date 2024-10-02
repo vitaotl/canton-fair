@@ -27,12 +27,12 @@ export async function GET(request) {
 
     connection.end();
 
-    if (rows.length === 0) {
-      return new Response(JSON.stringify({ error: 'No descriptions found' }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
+    // if (rows.length === 0) {
+    //   return new Response(JSON.stringify({ error: 'No descriptions found' }), {
+    //     status: 404,
+    //     headers: { 'Content-Type': 'application/json' }
+    //   });
+    // }
 
     return new Response(JSON.stringify(rows), {
       status: 200,

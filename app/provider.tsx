@@ -3,14 +3,16 @@
 import { createContext, use, useState } from "react"
 
 interface ContextType {
-  phase: number;
-  setPhase: (phase: number) => void;
-  area: string;
-  setArea: (area: string) => void;
-  floor: string;
-  setFloor: (floor: string) => void;
-  descriptions: [any];
-  setDescriptions: (descriptions: any) => void;
+  phase: number
+  setPhase: (phase: number) => void
+  area: string
+  setArea: (area: string) => void
+  floor: string
+  setFloor: (floor: string) => void
+  descriptions: [any]
+  setDescriptions: (descriptions: any) => void
+  userInfo: any
+  setUserInfo: (userInfo: any) => void
 }
 
 export const Context = createContext<ContextType | null>(null)
@@ -20,10 +22,22 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   const [area, setArea] = useState<string>("A")
   const [floor, setFloor] = useState<string>("1.1")
   const [descriptions, setDescriptions] = useState<any>([])
+  const [userInfo, setUserInfo] = useState<any>(null)
 
   return (
     <Context.Provider
-      value={{ phase, setPhase, area, setArea, floor, setFloor, descriptions, setDescriptions }}
+      value={{
+        phase,
+        setPhase,
+        area,
+        setArea,
+        floor,
+        setFloor,
+        descriptions,
+        setDescriptions,
+        userInfo,
+        setUserInfo
+      }}
     >
       {children}
     </Context.Provider>
